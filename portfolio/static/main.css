@@ -1,0 +1,18 @@
+body {
+  background: hsl(252, 45%, 11%);
+}
+
+.bg-black {
+  background: #ff0101;
+}
+
+.bgImg{
+  background-image: url("{% static 'portfolio/gym.jpg' %}");
+  background-size: cover;
+  background-position: center;
+}
+
+.card-project:hover {
+  border: 1px solid #eee;
+  cursor: pointer;
+}

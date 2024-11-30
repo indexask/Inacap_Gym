@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block links%}
+{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block title %} Login {% endblock %}
+</head>
+
+<body>
+    {% block content %}
+    <div class="mainLogin">
+        {% if user.is_authenticated %}
+        <script>window.location.href = '/Inicio/{{ user.id }}';</script>
+        {% else %}
+        <h2 style="color: black;">Iniciar sesión</h2>
+        <form id="Formulario" method="POST">
+            {{form}}
+            {% csrf_token %}
+            <input value="Iniciar Sesion" type="submit" style="background-color: #ffffff; color: black;">
+        </form>
+        <p>¿Aun no tienes cuenta? <a href="/Register/">Registrate ya!</a></p>
+        {% endif %}
+    </div>
+    <footer>
+        <ul>
+            <li><a style="color: #4a78f8">Contacto</a></li>
+            <li><a>Instagram</a></li>
+            <li><a>Facebook</a></li>
+        </ul>
+        <ul>
+            <li><a style="color: #4a78f8;">Ubicación</a></li>
+            <li><a> Av. Américo Vespucio 974, Maipú, Región Metropolitana</a></li>
+        </ul>
+        <ul>
+            <li><a style="color: #4a78f8;">© 1996-2024, Amazon.com, Inc. o sus filiales</a></li>
+        </ul>
+    </footer>
+    {% endblock %}
+
+</body>
+
+</html>
